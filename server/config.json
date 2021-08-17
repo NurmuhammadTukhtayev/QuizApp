@@ -1,0 +1,11 @@
+{
+  "db": {
+    "host": "localhost",
+    "username": "root",
+    "password": "f&1123581321",
+    "database": "quizbase"
+  },
+  "app": {
+    "PORT":"3001"
+  }
+}
