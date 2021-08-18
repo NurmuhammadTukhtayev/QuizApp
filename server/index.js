@@ -6,19 +6,15 @@ const cors=require('cors')
 
 //imports
 const authRoute=require('./routes/auth')
-const categoryRoute=require('./routes/categoryRoute')
-const questionsRoute=require('./routes/questionsRoute')
-const variantsRoute=require('./routes/variantsRoute')
+const quizRoute=require('./routes/quizRoute')
+const createRoute=require('./routes/createRoute')
 
 //middlewares
 app.use(cors())
 app.use(express.json())
 app.use('/auth', authRoute)
-app.use('/quiz', categoryRoute)
-app.use('/quiz/', questionsRoute)
-app.use('/quiz/', variantsRoute)
-
-
+app.use('/quiz', quizRoute)
+app.use('/quiz', createRoute)
 
 
 app.get('/', (req, res)=>{

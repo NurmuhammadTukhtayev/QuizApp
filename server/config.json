@@ -6,6 +6,7 @@
     "database": "quizbase"
   },
   "app": {
-    "PORT":"3001"
+    "PORT":"3001",
+    "key": "s3kr5tKt7"
   }
 }
