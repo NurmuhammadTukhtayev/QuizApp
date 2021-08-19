@@ -1,0 +1,29 @@
+.link-info{
+    text-decoration: none;
+    font-size: 36px;
+}
+
+.about{
+    background-color: whitesmoke;
+}
+
+.about h1{
+    text-align: center;
+}
+
+.tops{
+    text-align: center;
+    background-color: black;
+    color: whitesmoke;
+}
+
+.footer{
+    box-sizing: border-box;
+    text-align-all: center;
+    background-color: black;
+    color: whitesmoke;
+}
+
+.start{
+    text-align: center;
+}

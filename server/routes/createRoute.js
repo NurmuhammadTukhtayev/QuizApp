@@ -20,6 +20,13 @@ router.put('/categories/:id', authRole,async (req, res)=>{
 })
 
 //delete category
+router.delete('/categories/:id', authRole, async (req, res)=>{
+    const cat_id=req.params.id
+    const data=await dbFunc.query("DELETE FROM category WHERE id=?", [cat_id])
+    const result=await dbFunc.query("DELETE FROM questions WHERE category_id=?", [cat_id])
+    const variants=await dbFunc.query("DELETE FROM variants WHERE category_id=?", [cat_id])
+    res.send(variants)
+})
 
 
 
@@ -77,7 +84,5 @@ router.delete('/categories/:id/:qId', authRole, async (req, res)=>{
     const data=dbFunc.query("DELETE FROM variants WHERE question_id=?;", [id])
     res.send(data)
 })
-
-
 
 module.exports=router
