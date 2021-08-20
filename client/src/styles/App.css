@@ -1,0 +1,84 @@
+.link-info{
+    text-decoration: none;
+    font-size: 36px;
+}
+
+.about{
+    background-image: url("https://images.pexels.com/photos/239548/pexels-photo-239548.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    height: 800px;
+    background-position: center;
+    color: whitesmoke;
+}
+
+.leftText{
+    position: absolute;
+    padding: 2px 2px 2px 2px;
+    margin: 5% 10%;
+    /*left: 5%;*/
+    width: 450px;
+    height: 650px;
+    border: 3px ;
+}
+
+.rightText{
+    position: absolute;
+    right: 10%;
+    margin: 5% 10%;
+}
+
+.about h1{
+    text-align: center;
+    margin: 1px;
+}
+
+.tops{
+    text-align: center;
+    height: 500px;
+    /*background-image: url("https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");*/
+    background-color: whitesmoke;
+    background-position: center;
+}
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(33, 37, 41, 255);
+    color: white;
+    text-align: center;
+}
+
+.start{
+    text-align: center;
+    height: 260px;
+    color: whitesmoke;
+}
+
+.container {
+    height: 200px;
+    position: relative;
+}
+
+.startButton {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    height: 100px;
+    width: 200px;
+    background-color: rgba(33, 37, 41, 255);
+    color: whitesmoke;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+}
+.startButton:hover{
+    color: #0DCAF0;
+    transform: scale(1.2, 1.2);
+}
+
+.form{
+    margin:10%
+}
