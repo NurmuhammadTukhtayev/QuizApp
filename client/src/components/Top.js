@@ -14,7 +14,20 @@ function Top() {
 
     return (
             <div>
-                {user}
+                <table>
+                    <tr>
+                        <th className="rank">Rank</th>
+                        <th>Username</th>
+                        <th>Result</th>
+                        <th>Percent</th>
+                    </tr>
+                    <tr>
+                        <td className="rank">1</td>
+                        <td>Nur</td>
+                        <td>3</td>
+                        <td>100%</td>
+                    </tr>
+                </table>
             </div>
         );
 }

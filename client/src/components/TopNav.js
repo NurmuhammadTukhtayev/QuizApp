@@ -14,12 +14,12 @@ function TopNav(){
                     <Navbar.Collapse>
                         <Nav>
                             <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="/top">Top best results</Nav.Link>
+                            <Nav.Link href="/top">Ranking</Nav.Link>
                             <NavDropdown title="Start test">
-                                <NavDropdown.Item href="start/10">10 questions</NavDropdown.Item>
-                                <NavDropdown.Item href="start/10">15 questions</NavDropdown.Item>
-                                <NavDropdown.Item href="start/10">20 questions</NavDropdown.Item>
-                                <NavDropdown.Item href="start/10">30 questions</NavDropdown.Item>
+                                <NavDropdown.Item href="start">10 questions</NavDropdown.Item>
+                                <NavDropdown.Item href="start">15 questions</NavDropdown.Item>
+                                <NavDropdown.Item href="start">20 questions</NavDropdown.Item>
+                                <NavDropdown.Item href="start">30 questions</NavDropdown.Item>
                             </NavDropdown>
                             <Nav.Link href="/register">Sign Up</Nav.Link>
                         </Nav>

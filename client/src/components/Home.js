@@ -1,7 +1,13 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 function Home(){
+    const history=useHistory()
+    const start = () => {
+      history.push('/start')
+    }
+
     return(
         <div className="home">
             <div className="about">
@@ -13,25 +19,28 @@ function Home(){
                         and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                     </p>
                     <div className="container">
-                        <button className="startButton">START Test with 10 questions</button>
+                        <button className="startButton" onClick={start}>START TEST</button>
                     </div>
 
                 </div>
                 <div className="rightText">
+                    <h1>Choose one and start test</h1>
                     <div className="start">
-                        <h1>Choose one and start test</h1>
-                        <h4>
-                            <Link className="link-info"> Test with 10 questions</Link>
-                        </h4>
-                        <h4>
-                            <Link className="link-info"> Test with 15 questions</Link>
-                        </h4>
-                        <h4>
-                            <Link className="link-info"> Test with 20 questions</Link>
-                        </h4>
-                        <h4>
-                            <Link className="link-info"> Test with 30 questions</Link>
-                        </h4>
+                        <h2>
+                            <Link className="tests" to="/start"> Test with 10 questions</Link>
+                        </h2>
+                        <h2>
+                            <Link className="tests" to="/start"> Test with 15 questions</Link>
+                        </h2>
+                        <h2>
+                            <Link className="tests" to="/start"> Test with 20 questions</Link>
+                        </h2>
+                        <h2>
+                            <Link className="tests" to="/start"> Test with 25 questions</Link>
+                        </h2>
+                        <h2>
+                            <Link className="tests" to="/start"> Test with 30 questions</Link>
+                        </h2>
                     </div>
                 </div>
             </div>

@@ -7,6 +7,7 @@ import TopNav from "./components/TopNav";
 import Sign from "./components/Sign";
 import Login from "./components/Login";
 import Top from "./components/Top";
+import Test from "./components/Test";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
                 <Route path="/login" exact component={Login}/>
                 <Route path="/" exact component={Home}/>
                 <Route path="/top" exact component={Top}/>
+                <Route path="/start" exact component={Test}/>
             </Switch>
             <Footer/>
         </Router>
