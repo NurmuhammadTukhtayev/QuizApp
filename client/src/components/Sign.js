@@ -1,59 +1,57 @@
-import React from 'react';
-import {Form, Button, Row, Col} from "react-bootstrap";
-import {Link} from "react-router-dom";
+import React from "react";
+import {ErrorMessage, Field, Form, Formik} from "formik";
+import * as Yup from "yup";
+import axios from "axios";
+import {Link, useHistory} from "react-router-dom";
 
 function Sign(){
+    const history=useHistory()
+
+    const initialValues={
+        username:"",
+        password:"",
+        email:""
+    }
+
+    const validateSchema=Yup.object().shape({
+        username:Yup.string().min(3).max(15).required(),
+        password:Yup.string().required(),
+        email:Yup.string().required().email()
+    })
+
+    const onSubmit=(data)=>{
+        axios.post("http://localhost:3001/auth/register", data)
+            .then(()=>{
+                console.log(data)
+                history.push('/')
+            })
+    }
+
+
+
     return (
-        <div className="form">
-            <Form>
-                <Row className="mb-3">
-                    <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
-                    </Form.Group>
+        <div className="register">
+            <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validateSchema}>
+                <Form className="formContainer">
+                    <label>Username: </label>
+                    <ErrorMessage name="username" component="span"/>
+                    <Field autocomplate="off" id="inputCreatePost" name="username" placeholder="username *" />
 
-                    <Form.Group as={Col} controlId="formGridPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
-                    </Form.Group>
-                </Row>
+                    <label>Email: </label>
+                    <ErrorMessage name="email" component="span"/>
+                    <Field autocomplate="off" id="inputCreatePost" name="email" placeholder="email *" />
 
-                <Form.Group className="mb-3" controlId="formGridAddress1">
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control placeholder="username" />
-                </Form.Group>
+                    <label>Password: </label>
+                    <ErrorMessage name="password" component="span"/>
+                    <Field autocomplate="off" id="inputCreatePost" name="password" placeholder="password *" type="password" />
 
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-                <p>Already have account? <Link className="link" to="/login">Sign In</Link></p>
-            </Form>
+                    <button type="submit">Register</button>
+                    <p>Already have account? <Link to="/login">Log in</Link></p>
+
+                </Form>
+            </Formik>
         </div>
-
-
-
-
-
-
-        // <section>
-        //     <div className="register">
-        //         <div className="user-signingBx">
-        //             <div className="imgBox"><img src="https://i.pinimg.com/originals/d9/9a/01/d99a013f89801943cb6a557e3f6c191f.gif"/> </div>
-        //             <div className="formBx">
-        //                 <form>
-        //                     <h2>Sign In</h2>
-        //                     <input type="text" placeholder="username or email"/>
-        //                     <input type="password" placeholder="password"/>
-        //                     <input type="submit" value="Login"/>
-        //                     <p className="signUp">Don't have an account? <a href="#">Sign up</a></p>
-        //                 </form>
-        //             </div>
-        //         </div>
-        //
-        //     </div>
-        // </section>
-
-        );
+    )
 }
 
-export default Sign;
+export default Sign

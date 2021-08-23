@@ -1,25 +1,40 @@
-import React from 'react';
-import {Button, Form} from "react-bootstrap";
+import React, {useState} from "react";
+import axios from "axios";
+import {useHistory} from "react-router-dom";
 
-function Login() {
+function Login(){
+
+    const [username, setUsername]=useState("")
+    const [password, setPassword]=useState("")
+    let history=useHistory()
+
+    const login = () => {
+        const data={username:username, password:password}
+        axios.post("http://localhost:3001/auth/login", data)
+            .then(response=>{
+                if(response.data.error)
+                    return alert(response.data.error)
+                localStorage.setItem("x-auth-token", response.data)
+                history.push("/")
+            })
+    }
+
     return (
-        <div className="form">
-            <Form>
-                <Form.Group className="mb-3" controlId="formGroupEmail">
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control type="text" placeholder="Enter email or username" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formGroupPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-
-                <Button variant="primary" type="submit">
-                    Log in
-                </Button>
-            </Form>
+        <div className="register">
+            <div className="loginContainer">
+                <label>Username</label>
+                <input type="text" onChange={event => {
+                    setUsername(event.target.value)
+                }}/>
+                <label>Password</label>
+                <input type="password" onChange={event => {
+                    setPassword(event.target.value)
+                }}/>
+                <button onClick={login}>Login</button>
+            </div>
         </div>
-        );
+
+    )
 }
 
-export default Login;
+export default Login

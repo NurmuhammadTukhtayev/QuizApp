@@ -1,32 +1,49 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useCallback} from 'react';
 import axios from 'axios'
 
 function Top() {
     const [user, setUser]=useState([]);
 
+
+    // console.log(localStorage.getItem("x-auth-token"))
     useEffect(()=>{
-        axios.get("http://localhost:3001/users/top").then(response=>{
+        axios.get("http://localhost:3001/users/top", {
+            headers:{
+                token:localStorage.getItem("x-auth-token")
+            }
+        }).then(response=>{
             setUser(response.data)
-            console.log(response.data)
         })
 
     }, [])
 
+
     return (
             <div>
                 <table>
-                    <tr>
-                        <th className="rank">Rank</th>
-                        <th>Username</th>
-                        <th>Result</th>
-                        <th>Percent</th>
-                    </tr>
-                    <tr>
-                        <td className="rank">1</td>
-                        <td>Nur</td>
-                        <td>3</td>
-                        <td>100%</td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th className="rank">Rank</th>
+                            <th>Username</th>
+                            <th>Result</th>
+                            <th>Percent</th>
+                        </tr>
+                    </thead>
+                    {user.map((name, key)=>{
+                        return <div>
+                            <tbody>
+                            <tr>
+                                <td className="rank">{key+1}</td>
+                                <td className="username">{name.username}</td>
+                                <td className="ball">{name.ball}</td>
+                                <td className="percent">{name.percent}%</td>
+                            </tr>
+                            </tbody>
+                        </div>
+
+                    })}
+
+
                 </table>
             </div>
         );

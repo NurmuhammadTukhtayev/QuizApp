@@ -33,7 +33,7 @@ router.post('/login', async (req, res)=>{
     let result=await dbFunc.query("SELECT * FROM users WHERE username=? OR email=?",[username, username])
 
     if(result.length===0){
-        return res.send('username or password invalid')
+        return res.json({error: 'username or password invalid'})
     }
     const password=result[0].password
 
@@ -45,9 +45,10 @@ router.post('/login', async (req, res)=>{
             role="admin"
         }
         const token=jwt.sign({name:username, role:role}, config.key)
-        res.header('x-auth-token', token).send("Success")
+        res.header('x-auth-token', token)
+        res.send(token)
     }else{
-        res.send('username or password invalid')
+        res.json({error: 'username or password invalid!'})
     }
 })
 

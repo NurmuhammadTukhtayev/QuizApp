@@ -119,8 +119,10 @@ table td, table th {
 }
 
 .rank{
-    width: 30px;
+    width: 40px;
 }
+
+
 
 .test-start{
     border: #0DCAF0 solid 2px;
@@ -142,4 +144,115 @@ table td, table th {
 .active, .variants:hover {
     background-color: #0DCAF0;
     color: white;
+}
+
+.formContainer{
+    width: 500px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    margin-top: -200px;
+    margin-left: -250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 550px;
+    height: auto;
+    padding: 20px;
+    color: rgba(33, 37, 41, 255);
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    /*border: 5px solid rgba(33, 37, 41, 255);*/
+    /*border-radius: 5px;*/
+}
+
+.register{
+    background-image: url("https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-color: #cccccc;
+    height: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.formContainer #inputCreatePost {
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid rgba(33, 37, 41, 255);
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 20px;
+    background: transparent;
+    color: rgba(33, 37, 41, 255);
+}
+
+.formContainer button {
+    margin-top: 15px;
+    height: 40px;
+    border: none;
+    background-color: rgba(33, 37, 41, 255);
+    border-radius: 5px;
+    color: white;
+}
+
+.formContainer button:hover {
+    cursor: pointer;
+    background-color: whitesmoke;
+    color: rgba(33, 37, 41, 255);
+}
+
+span {
+    color: red;
+}
+/*Login*/
+.loginContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    height: 700px;
+    padding-top: 100px;
+    width: 500px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    margin-top: -200px;
+    margin-left: -250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 550px;
+    height: auto;
+    padding: 20px;
+    color: rgba(33, 37, 41, 255);
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.loginContainer input,
+button {
+    width: 500px;
+    height: 50px;
+    border-radius: 8px;
+    border: none;
+    margin: 10px;
+    background: transparent;
+}
+
+.loginContainer button {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.loginContainer button:hover {
+    background-color: white;
+    color: rgba(33, 37, 41, 255);
+}
+
+.loginContainer input {
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }

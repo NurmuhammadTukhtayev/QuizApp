@@ -1,6 +1,24 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from "axios";
 
 const Test = () => {
+    const [question, setQuestion]=useState()
+
+    useEffect(()=>{
+        axios.get("http://localhost:3001/quiz/1/start/Nurmuhammad/:tests", {
+            headers:{
+                token:localStorage.getItem("x-auth-token")
+            }
+        }).then(response=>{
+            setQuestion(response.data)
+        })
+
+    }, [])
+
+    //TODO in base no questions, must create questions and variants + category
+    console.log(question)
+
+
     const questions=[
         {
             id:1,
