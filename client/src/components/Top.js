@@ -29,20 +29,16 @@ function Top() {
                             <th>Percent</th>
                         </tr>
                     </thead>
+                    <tbody>
                     {user.map((name, key)=>{
-                        return <div>
-                            <tbody>
-                            <tr>
+                        return <tr>
                                 <td className="rank">{key+1}</td>
                                 <td className="username">{name.username}</td>
                                 <td className="ball">{name.ball}</td>
                                 <td className="percent">{name.percent}%</td>
                             </tr>
-                            </tbody>
-                        </div>
-
                     })}
-
+                    </tbody>
 
                 </table>
             </div>

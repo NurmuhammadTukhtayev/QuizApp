@@ -1,29 +1,43 @@
 import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Home from "./components/Home";
-import Footer from "./components/Footer";
-import TopNav from "./components/TopNav";
-import Sign from "./components/Sign";
-import Login from "./components/Login";
-import Top from "./components/Top";
-import Test from "./components/Test";
+import {useEffect, useState} from "react";
+import axios from "axios";
+import MainPage from "./components/MainPage";
+import Admin from "./components/Admin/Admin";
 
 function App() {
+    const [role, setRole]=useState("")
+
+    useEffect(()=>{
+        axios.get("http://localhost:3001/users/",
+            {
+                headers:{
+                    token:localStorage.getItem('x-auth-token')
+                }
+            })
+            .then(response=>{
+                if(response.data.error){
+                    setRole("")
+                    console.log(response.data.error)
+                }
+                else {
+                    if(response.data.role==="admin")
+                        setRole("admin")
+                    else
+                        setRole("user")
+                }
+            })
+    },[])
+
+
   return (
-    <div className="App">
-        <Router>
-            <TopNav/>
-            <Switch>
-                <Route path="/register" exact component={Sign}/>
-                <Route path="/login" exact component={Login}/>
-                <Route path="/" exact component={Home}/>
-                <Route path="/top" exact component={Top}/>
-                <Route path="/start" exact component={Test}/>
-            </Switch>
-            <Footer/>
-        </Router>
-    </div>
+          <div className="App">
+              {role === "admin" ?
+                  <Admin/>
+                  :
+                  <MainPage/>
+              }
+          </div>
   );
 }
 

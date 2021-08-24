@@ -8,4 +8,8 @@ router.get('/top', authMid, async (req, res)=>{
     res.send(result)
 })
 
+router.get('/', authMid, async (req, res)=>{
+    res.json(req.user)
+})
+
 module.exports=router
