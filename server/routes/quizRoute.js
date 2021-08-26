@@ -33,7 +33,7 @@ router.get('/categories/:id/:varId',authMid, async (req, res)=>{
 })
 
 //Start test
-router.get('/:id/start/:username/:tests',authMid, async (req, res)=>{
+router.get('/:id/start/:tests',authMid, async (req, res)=>{
     const catId=req.params.id
     const limit=req.params.tests*1
     let questions=[], variants=[]
@@ -50,7 +50,7 @@ router.get('/:id/start/:username/:tests',authMid, async (req, res)=>{
 })
 
 //Calculate results
-router.post('/:id/start/:username/:tests', authMid,async (req, res)=>{
+router.post('/:id/start/:tests', authMid,async (req, res)=>{
     const limit=req.params.tests*1
     let ball=0
     for(let i=0;i<limit;i++){

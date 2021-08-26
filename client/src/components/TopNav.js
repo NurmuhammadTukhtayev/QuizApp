@@ -23,23 +23,22 @@ function TopNav(){
                         <Nav>
                             {isAuth.status ?
                                 <>
-                                    <Nav.Link><Link to="/" className="navs">Home</Link></Nav.Link>
-                                    <Nav.Link><Link to="/top" className="navs">Ranking</Link></Nav.Link>
-
+                                    <Nav.Link as={Link} to="/">Home</Nav.Link>
+                                    <Nav.Link as={Link} to="top">Ranking</Nav.Link>
 
                                     <NavDropdown title="Start test">
-                                        <NavDropdown.Item href="start">10 questions</NavDropdown.Item>
-                                        <NavDropdown.Item href="start">15 questions</NavDropdown.Item>
-                                        <NavDropdown.Item href="start">20 questions</NavDropdown.Item>
-                                        <NavDropdown.Item href="start">30 questions</NavDropdown.Item>
+                                        <NavDropdown.Item as={Link} to="start">10 questions</NavDropdown.Item>
+                                        <NavDropdown.Item as={Link} to="start">15 questions</NavDropdown.Item>
+                                        <NavDropdown.Item as={Link} to="start">20 questions</NavDropdown.Item>
+                                        <NavDropdown.Item as={Link} to="start">30 questions</NavDropdown.Item>
                                     </NavDropdown>
-                                    <Nav.Link><Link to="/t" className="navs">{isAuth.username}</Link></Nav.Link>
+                                    <Nav.Link as={Link} to="username">{isAuth.username}</Nav.Link>
 
                                     <button className='logOut' onClick={logOut}>Log out</button>
                                 </>
                                 :
                                 <>
-                                    <Nav.Link href="/register">Sign Up</Nav.Link>
+                                    <Nav.Link as={Link} to="register">Sign Up</Nav.Link>
                                 </>
                             }
                         </Nav>

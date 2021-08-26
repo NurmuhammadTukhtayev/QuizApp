@@ -38,16 +38,18 @@ router.post('/addQuestions', authRole,async (req, res)=>{
     const count=data[0].count+1
     const answer=await bcrypt.hash(req.body.correct_ans, 12)
 
+
     const result=await dbFunc.query("INSERT INTO questions (category_id, question, correct_ans, save_time) VALUES (?, ?, ?,?);", [id, req.body.question, answer,time ])
     const questionId=JSON.stringify(result.insertId)
+
 
     const catRes=await dbFunc.query("UPDATE category SET count = ? WHERE (id = ?);",[count, id])
 
     let variants=req.body.variants
     let add
     for(let i=0;i<variants.length;++i){
-        const A=JSON.stringify(variants[i])
-        add=await dbFunc.query("INSERT INTO variants (variant, set_time, question_id) VALUES (?,?,?)",[A,  time, questionId])
+        const A=JSON.stringify(variants[i].variant)
+        add=await dbFunc.query("INSERT INTO variants (variant, set_time, question_id, category_id) VALUES (?,?,?,?)",[A,  time, questionId, id])
     }
 
     res.send(add)

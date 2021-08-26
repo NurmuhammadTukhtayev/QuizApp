@@ -5,7 +5,7 @@
 
 .about{
     background-image: url("https://images.pexels.com/photos/239548/pexels-photo-239548.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-    height: 800px;
+    height: 900px;
     background-position: center;
     color: whitesmoke;
 }
@@ -270,22 +270,80 @@ button {
 }
 
 .top{
-    position: absolute;
-    right: 0;
-    width: 1600px;
-    height: 930px;
-    border: 3px solid blue;
+    position: fixed;
+    right: 12px;
+    width: 80%;
+    height: 100%;
+    border: 3px solid black;
+    padding: 15px;
 }
 
 .sidebar{
-    position: absolute;
-    left: 0;
-    width: 300px;
-    height: 930px;
-    border: 3px solid green;
+    position: fixed;
+    width: 20%;
+    height: 100%;
+    border: 3px solid black;
+}
+
+.right{
+    right:0;
+}
+
+.left{
+    left:0;
 }
 
 .navs{
     color: #9B9D9E;
     text-decoration: none;
+}
+
+.category label{
+    font-size: 23px;
+    text-align: center;
+    padding: 15px;
+}
+
+.category input{
+    width: 400px;
+    height: auto;
+    font-size: 20px;
+    display: flex;
+    position: initial;
+}
+
+.category button{
+    background-color: #0DCAF0;
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    margin: 4px;
+    border-radius: 5px;
+}
+
+.myLink{
+    color: black;
+    text-decoration: none;
+}
+
+.select{
+  position: relative;
+}
+
+.select input {
+     width: 100%;
+     padding-right: 40px;
+ }
+
+.btn-box{
+    width: 70px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.question{
+    display: inline-flex;
+    padding: 2%;
+    margin: 5px;
 }

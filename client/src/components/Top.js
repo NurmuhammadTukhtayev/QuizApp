@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useCallback} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios'
 
 function Top() {
@@ -31,7 +31,7 @@ function Top() {
                     </thead>
                     <tbody>
                     {user.map((name, key)=>{
-                        return <tr>
+                        return <tr key={key}>
                                 <td className="rank">{key+1}</td>
                                 <td className="username">{name.username}</td>
                                 <td className="ball">{name.ball}</td>

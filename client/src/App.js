@@ -4,9 +4,11 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import MainPage from "./components/MainPage";
 import Admin from "./components/Admin/Admin";
+import {BrowserRouter} from "react-router-dom";
 
 function App() {
     const [role, setRole]=useState("")
+    const [name, setName]=useState("")
 
     useEffect(()=>{
         axios.get("http://localhost:3001/users/",
@@ -16,28 +18,30 @@ function App() {
                 }
             })
             .then(response=>{
-                if(response.data.error){
-                    setRole("")
-                    console.log(response.data.error)
-                }
-                else {
-                    if(response.data.role==="admin")
+                    if(response.data.role==="admin") {
                         setRole("admin")
+                        setName(response.data.name)
+                    }
                     else
                         setRole("user")
-                }
+            })
+            .catch(error=>{
+                console.log(error)
             })
     },[])
 
 
   return (
+      <BrowserRouter>
           <div className="App">
               {role === "admin" ?
-                  <Admin/>
+                  <Admin name={name} isAuth={true}/>
                   :
                   <MainPage/>
               }
           </div>
+      </BrowserRouter>
+
   );
 }
 

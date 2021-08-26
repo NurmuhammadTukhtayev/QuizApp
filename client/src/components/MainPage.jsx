@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import TopNav from "./TopNav";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
 import Home from "./Home";
 import Top from "./Top";
 import Test from "./Test";
@@ -26,19 +26,14 @@ const MainPage = () => {
                 }
             })
             .then(response=>{
-                if(response.data.error){
-                    setIsAuth({...isAuth, status: false})
-                    console.log(response.data.error)
-                }
-                else {
-
                     setIsAuth({
                         username: response.data.name,
                         role:response.data.role,
                         status: true
                     })
-                    console.log(response.data.role)
-                }
+            })
+            .catch(error=>{
+                console.log(error)
             })
     },[])
 
@@ -53,10 +48,14 @@ const MainPage = () => {
                         <>
                             <Route path="/top" exact component={Top}/>
                             <Route path="/start" exact component={Test}/>
+                            {/*<Route path="*" exact component={NotFound}/>*/}
                         </> :
                         <>
                             <Route path="/register" exact component={Sign}/>
                             <Route path="/login" exact component={Login}/>
+                            <Route path="*" exact>
+                                <Redirect to="register"/>
+                            </Route>
                         </>
                     }
                 </Switch>
