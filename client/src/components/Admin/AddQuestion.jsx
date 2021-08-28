@@ -16,6 +16,14 @@ const AddQuestion = () => {
     const createVar = (newVar) => {
       setVariants(newVar)
     }
+
+    // const validate=Yup.object().shape({
+    //     category:Yup.string().required(),
+    //     question:Yup.string().required(),
+    //     correctAnswer:Yup.string().required(),
+    //     variants:Yup.string().required().minlength(2)
+    // })
+
     const addQuestion = () => {
         axios.post("http://localhost:3001/quiz/addQuestions", {category:category, question:question, correct_ans:correctAnswer, variants:variants}, {
             headers:{
@@ -47,8 +55,7 @@ const AddQuestion = () => {
                     <input value={correctAnswer} type="text" placeholder="answer*" onChange={event => setCorrectAnswer(event.target.value)}/>
                 </div>
                 <Variants create={createVar}/>
-                <button onClick={addQuestion}>Create </button>
-
+                <button type="text" onClick={addQuestion}>Create </button>
             </div>
         </div>
     );

@@ -1,3 +1,8 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
 .link-info{
     text-decoration: none;
     font-size: 36px;
@@ -42,6 +47,7 @@
 
 .footer{
     position: fixed;
+    margin: 0;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -128,8 +134,9 @@ table td, table th {
     border: #0DCAF0 solid 2px;
     padding: 2px;
     margin: 60px;
-    height: auto;
-    width: auto;
+    margin-bottom: 0;
+    max-width: 90%;
+    text-align: center;
 }
 
 .variants{
@@ -327,11 +334,12 @@ button {
 }
 
 .select{
-  position: relative;
+  position: center;
+    text-align: center;
 }
 
 .select input {
-     width: 100%;
+     width: 50%;
      padding-right: 40px;
  }
 
@@ -346,4 +354,33 @@ button {
     display: inline-flex;
     padding: 2%;
     margin: 5px;
+}
+
+.startTest{
+    height: 100vh;
+    background-image: url("https://images.pexels.com/photos/4022332/pexels-photo-4022332.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-position: right;
+    background-size: revert;
+    background-position-y: center;
+    background-repeat: no-repeat;
+}
+
+#chose{
+    background: transparent;
+    font-weight: 20px;
+    border: solid 1px;
+}
+.choose{
+    display: inline-block;
+    margin: 20px;
+}
+
+.choose input{
+    display: flex;
+    max-width: 100px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: solid white;
 }

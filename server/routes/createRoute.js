@@ -34,6 +34,7 @@ router.delete('/categories/:id', authRole, async (req, res)=>{
 router.post('/addQuestions', authRole,async (req, res)=>{
     let time=new Date().toLocaleString()
     const data=await dbFunc.query("SELECT * FROM category WHERE category=?;", [req.body.category])
+    if(!data.length) return res.send("Category is not defined")
     const id=JSON.stringify(data[0].id)
     const count=data[0].count+1
     const answer=await bcrypt.hash(req.body.correct_ans, 12)

@@ -12,9 +12,7 @@ const SelectCategory = ({create}) => {
             }
         })
             .then(response=>{
-                console.log(response.data)
                 setOptions(response.data)
-                console.log(response.data[0].category)
             })
             .catch(err=>{
                 console.log(err)

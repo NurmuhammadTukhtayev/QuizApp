@@ -1,11 +1,31 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
+import CustomControl from "./CustomComp";
 
 const Test = () => {
     const [question, setQuestion]=useState()
+    const [category, setCategory]=useState([])
 
     useEffect(()=>{
-        axios.get("http://localhost:3001/quiz/1/start/Nurmuhammad/:tests", {
+        axios.get('http://localhost:3001/quiz/categories', {
+            headers:{
+                token:localStorage.getItem('x-auth-token')
+            }
+        })
+            .then(response=>{
+                let arr=[]
+                for(let i=0; i<response.data.length;i++)
+                    arr.push({label: response.data[i].category})
+                setCategory( arr)
+                console.log(category)
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+    },[])
+
+    useEffect(()=>{
+        axios.get("http://localhost:3001/quiz/1/start/:tests", {
             headers:{
                 token:localStorage.getItem("x-auth-token")
             }
@@ -16,7 +36,7 @@ const Test = () => {
     }, [])
 
     //TODO in base no questions, must create questions and variants + category
-    console.log(question)
+    // console.log(question)
 
 
     const questions=[
@@ -50,8 +70,13 @@ const Test = () => {
     ]
 
     return (
-        <div>
-            <h1 style={{textAlign:"center"}}>Test Category</h1>
+        <div className="startTest">
+            <h1 style={{textAlign:"center"}}>Choose the Test Category</h1>
+            <CustomControl categories={category}/>
+            <div className="choose">
+                <label>How many tests?</label>
+                <input type="number"/>
+            </div>
             <div className="test-start">
                 {questions.map((question)=>
                     <div>

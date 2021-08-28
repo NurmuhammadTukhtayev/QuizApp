@@ -9,6 +9,7 @@ import Login from "./Login";
 import Footer from "./Footer";
 import axios from "axios";
 import {AuthContext} from "../context";
+import CustomComp from "./CustomComp";
 
 const MainPage = () => {
 
@@ -48,6 +49,7 @@ const MainPage = () => {
                         <>
                             <Route path="/top" exact component={Top}/>
                             <Route path="/start" exact component={Test}/>
+                            <Route path="/username" exact component={CustomComp}/>
                             {/*<Route path="*" exact component={NotFound}/>*/}
                         </> :
                         <>
